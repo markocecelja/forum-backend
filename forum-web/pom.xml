@@ -6,7 +6,6 @@
         <groupId>com.mcecelja</groupId>
         <artifactId>forum</artifactId>
         <version>1.0</version>
-        <relativePath/>
     </parent>
 
     <artifactId>forum-web</artifactId>
