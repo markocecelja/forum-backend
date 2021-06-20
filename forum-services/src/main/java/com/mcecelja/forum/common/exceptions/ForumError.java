@@ -5,7 +5,10 @@ public enum ForumError {
 	SESSION_EXPIRED("Session expired!"),
 	JSON_PARSE_ERROR("Error while parsing JSON!"),
 	BAD_REQUEST("Bad request!"),
-	BAD_CREDENTIALS("Bad credentials");
+	BAD_CREDENTIALS("Bad credentials"),
+	PASSWORD_MISMATCH("Password mismatch!"),
+	INVALID_EMAIL_ADDRESS("Email is not in a valid format!"),
+	USERNAME_ALREADY_IN_USE("Provided username is already in use!");
 
 	private final String desc;
 

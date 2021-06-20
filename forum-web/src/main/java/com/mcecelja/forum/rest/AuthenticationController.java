@@ -2,6 +2,7 @@ package com.mcecelja.forum.rest;
 
 import com.mcecelja.forum.common.dto.authentication.LoginRequestDTO;
 import com.mcecelja.forum.common.dto.authentication.LoginResponseDTO;
+import com.mcecelja.forum.common.dto.authentication.RegistrationRequestDTO;
 import com.mcecelja.forum.common.exceptions.ForumException;
 import com.mcecelja.forum.services.AuthenticationService;
 import com.mcecelja.forum.utils.ResponseMessage;
@@ -24,5 +25,11 @@ public class AuthenticationController {
 
 		LoginResponseDTO loginResponseDTO = authenticationService.authenticateAndLogInUser(loginRequestDTO.getUsername(), loginRequestDTO.getPassword());
 		return ResponseEntity.ok(new ResponseMessage<>(loginResponseDTO));
+	}
+
+	@PostMapping("/registration")
+	public ResponseEntity<ResponseMessage<String>> registerUser(@Valid @RequestBody RegistrationRequestDTO registrationRequestDTO) throws ForumException {
+		authenticationService.registerUser(registrationRequestDTO);
+		return ResponseEntity.ok(new ResponseMessage<>(""));
 	}
 }
