@@ -135,6 +135,21 @@
         </resources>
     </build>
 
+    <profiles>
+        <profile>
+            <id>localdev</id>
+            <properties>
+                <activatedProperties>localdev</activatedProperties>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <activatedProperties>prod</activatedProperties>
+            </properties>
+        </profile>
+    </profiles>
+
     <modules>
         <module>forum-repo</module>
         <module>forum-services</module>
