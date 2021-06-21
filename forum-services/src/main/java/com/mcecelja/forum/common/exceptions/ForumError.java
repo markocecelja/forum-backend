@@ -10,6 +10,7 @@ public enum ForumError {
 	INVALID_EMAIL_ADDRESS("Email is not in a valid format!"),
 	USERNAME_ALREADY_IN_USE("Provided username is already in use!"),
 	UNAUTHORIZED("Unauthorized request!"),
+	USER_NOT_FOUND("User with provided id doesn't exist!"),
 	NON_EXISTING_TOPIC("Topic with provided id doesn't exist!"),
 	NON_EXISTING_COMMENT("Comment with provided id doesn't exist!");
 

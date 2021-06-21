@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 
@@ -27,5 +29,6 @@ public class Comment {
 	private Topic topic;
 
 	@ManyToOne
+	@NotFound(action = NotFoundAction.IGNORE)
 	private User createdBy;
 }

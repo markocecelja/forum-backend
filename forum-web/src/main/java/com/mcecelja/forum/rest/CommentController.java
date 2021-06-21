@@ -36,13 +36,13 @@ public class CommentController {
 	}
 
 	@PostMapping("")
-	public ResponseEntity<ResponseMessage<CommentDTO>> createComment(@Valid @RequestBody CommentDTO CommentDTO) throws ForumException {
-		return ResponseEntity.ok(new ResponseMessage<>(commentService.createComment(CommentDTO)));
+	public ResponseEntity<ResponseMessage<CommentDTO>> createComment(@Valid @RequestBody CommentDTO commentDTO) throws ForumException {
+		return ResponseEntity.ok(new ResponseMessage<>(commentService.createComment(commentDTO)));
 	}
 
 	@PutMapping("/{commentId}")
-	public ResponseEntity<ResponseMessage<CommentDTO>> updateComment(@PathVariable("commentId") Long commentId, @Valid @RequestBody CommentDTO CommentDTO) throws ForumException {
-		return ResponseEntity.ok(new ResponseMessage<>(commentService.updateComment(commentId, CommentDTO)));
+	public ResponseEntity<ResponseMessage<CommentDTO>> updateComment(@PathVariable("commentId") Long commentId, @Valid @RequestBody CommentDTO commentDTO) throws ForumException {
+		return ResponseEntity.ok(new ResponseMessage<>(commentService.updateComment(commentId, commentDTO)));
 	}
 
 	@DeleteMapping("/{commentId}")

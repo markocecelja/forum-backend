@@ -1,12 +1,13 @@
 package com.mcecelja.forum.domain.user;
 
 import com.mcecelja.forum.domain.AbstractBaseEntity;
-import com.mcecelja.forum.domain.topic.Topic;
 import com.mcecelja.forum.domain.user.codebook.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,6 +19,8 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
+@SQLDelete(sql="update users SET deleted_date_time = (SELECT CURRENT_TIMESTAMP) where id=?")
+@Where(clause = "deleted_date_time IS NULL")
 public class User extends AbstractBaseEntity implements Serializable {
 
 	@Id
@@ -27,6 +30,8 @@ public class User extends AbstractBaseEntity implements Serializable {
 	private String firstName;
 
 	private String lastName;
+
+	private String email;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(
@@ -40,7 +45,4 @@ public class User extends AbstractBaseEntity implements Serializable {
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private UserLogin userLogin;
-
-	@OneToMany(mappedBy = "createdBy", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private Set<Topic> topics;
 }
