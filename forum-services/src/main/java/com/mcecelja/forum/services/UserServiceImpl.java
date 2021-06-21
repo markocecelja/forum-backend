@@ -2,7 +2,7 @@ package com.mcecelja.forum.services;
 
 import com.mcecelja.forum.domain.user.User;
 import com.mcecelja.forum.domain.user.UserLogin;
-import com.mcecelja.forum.repositories.UserLoginRepository;
+import com.mcecelja.forum.repositories.user.UserLoginRepository;
 import com.mcecelja.forum.security.UserPrincipal;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

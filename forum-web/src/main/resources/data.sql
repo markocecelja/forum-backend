@@ -15,3 +15,7 @@ VALUES ('ikovac', '$2a$12$JB8fZ4Kojd6/H2U.SS9mq.1fjg3i3dgmmURGCH0Huw0LnO06P/fb2'
 INSERT INTO user_role (user_id, role_id)
 VALUES (1, 1),
        (2, 2);
+
+INSERT INTO topic (title, description, created_by_id)
+VALUES ('Prva testna tema', 'Opis prve testne teme', 1),
+       ('Druga testna tema', 'Opis druge testne teme', 2);

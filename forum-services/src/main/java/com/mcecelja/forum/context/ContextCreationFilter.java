@@ -3,7 +3,7 @@ package com.mcecelja.forum.context;
 import com.mcecelja.forum.common.exceptions.ForumError;
 import com.mcecelja.forum.common.exceptions.ForumException;
 import com.mcecelja.forum.domain.user.User;
-import com.mcecelja.forum.repositories.UserRepository;
+import com.mcecelja.forum.repositories.user.UserRepository;
 import com.mcecelja.forum.security.jwt.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

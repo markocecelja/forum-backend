@@ -1,4 +1,4 @@
-package com.mcecelja.forum.repositories;
+package com.mcecelja.forum.repositories.user;
 
 import com.mcecelja.forum.domain.user.UserLogin;
 import org.springframework.data.jpa.repository.JpaRepository;

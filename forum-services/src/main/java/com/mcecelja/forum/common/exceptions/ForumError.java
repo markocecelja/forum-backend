@@ -8,7 +8,9 @@ public enum ForumError {
 	BAD_CREDENTIALS("Bad credentials"),
 	PASSWORD_MISMATCH("Password mismatch!"),
 	INVALID_EMAIL_ADDRESS("Email is not in a valid format!"),
-	USERNAME_ALREADY_IN_USE("Provided username is already in use!");
+	USERNAME_ALREADY_IN_USE("Provided username is already in use!"),
+	UNAUTHORIZED("Unauthorized request!"),
+	NON_EXISTING_TOPIC("Topic with provided id doesn't exist!");
 
 	private final String desc;
 
