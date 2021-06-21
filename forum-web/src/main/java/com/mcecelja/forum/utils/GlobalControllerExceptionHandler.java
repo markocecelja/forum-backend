@@ -5,6 +5,7 @@ import com.mcecelja.forum.common.exceptions.ForumException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -26,9 +27,9 @@ public class GlobalControllerExceptionHandler {
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
-	
-	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public ResponseEntity<Object> handleArgumentNotValidException(MethodArgumentNotValidException ex) {
+
+	@ExceptionHandler({MethodArgumentNotValidException.class, NumberFormatException.class, MissingServletRequestParameterException.class})
+	public ResponseEntity<Object> handleBadRequestExceptions(Exception ex) {
 		String response = null;
 		ex.printStackTrace();
 		try {

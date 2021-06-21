@@ -8,8 +8,8 @@ import com.mcecelja.forum.common.mappers.TopicMapper;
 import com.mcecelja.forum.context.AuthorizedRequestContext;
 import com.mcecelja.forum.domain.topic.Topic;
 import com.mcecelja.forum.domain.user.User;
-import com.mcecelja.forum.repositories.specifications.TopicSearchSpecification;
-import com.mcecelja.forum.repositories.specifications.criteria.TopicSearchCriteria;
+import com.mcecelja.forum.specifications.TopicSearchSpecification;
+import com.mcecelja.forum.specifications.criteria.TopicSearchCriteria;
 import com.mcecelja.forum.repositories.topic.TopicRepository;
 import com.mcecelja.forum.services.common.PermissionCheckerService;
 import lombok.RequiredArgsConstructor;
@@ -49,7 +49,7 @@ public class TopicServiceImpl implements TopicService {
 	@Override
 	public Page<TopicDTO> getTopics(TopicSearchCriteria criteria, Pageable pageable) {
 
-		Page<Topic> topics = topicRepository.findAll(TopicSearchSpecification.findProducts(criteria), pageable);
+		Page<Topic> topics = topicRepository.findAll(TopicSearchSpecification.findTopics(criteria), pageable);
 
 		return topics.map(topicMapper::topicToTopicDTO);
 	}
@@ -60,7 +60,7 @@ public class TopicServiceImpl implements TopicService {
 
 		Topic topic = new Topic();
 		topic.setTitle(topicDTO.getTitle().trim());
-		topic.setDescription(topicDTO.getDescription().trim());
+		topic.setDescription(topicDTO.getDescription());
 		topic.setCreatedBy(AuthorizedRequestContext.getCurrentUser());
 
 		topicRepository.save(topic);
@@ -89,7 +89,7 @@ public class TopicServiceImpl implements TopicService {
 		}
 
 		topic.setTitle(topicDTO.getTitle().trim());
-		topic.setDescription(topicDTO.getDescription().trim());
+		topic.setDescription(topicDTO.getDescription());
 
 		topicRepository.save(topic);
 

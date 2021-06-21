@@ -1,6 +1,6 @@
-package com.mcecelja.forum.domain.topic;
+package com.mcecelja.forum.domain.comment;
 
-import com.mcecelja.forum.domain.comment.Comment;
+import com.mcecelja.forum.domain.topic.Topic;
 import com.mcecelja.forum.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,27 +8,24 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Topic {
+public class Comment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String title;
-
 	@Column(columnDefinition = "TEXT")
-	private String description;
+	private String content;
+
+	@ManyToOne
+	private Topic topic;
 
 	@ManyToOne
 	private User createdBy;
-
-	@OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-	private Set<Comment> comments;
 }

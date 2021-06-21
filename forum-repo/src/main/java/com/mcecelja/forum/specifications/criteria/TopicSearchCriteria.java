@@ -1,4 +1,4 @@
-package com.mcecelja.forum.repositories.specifications.criteria;
+package com.mcecelja.forum.specifications.criteria;
 
 import lombok.*;
 

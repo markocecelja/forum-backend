@@ -2,7 +2,7 @@ package com.mcecelja.forum.services;
 
 import com.mcecelja.forum.common.dto.topic.TopicDTO;
 import com.mcecelja.forum.common.exceptions.ForumException;
-import com.mcecelja.forum.repositories.specifications.criteria.TopicSearchCriteria;
+import com.mcecelja.forum.specifications.criteria.TopicSearchCriteria;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

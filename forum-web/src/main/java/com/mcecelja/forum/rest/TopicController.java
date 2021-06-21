@@ -2,14 +2,13 @@ package com.mcecelja.forum.rest;
 
 import com.mcecelja.forum.common.dto.topic.TopicDTO;
 import com.mcecelja.forum.common.exceptions.ForumException;
-import com.mcecelja.forum.repositories.specifications.criteria.TopicSearchCriteria;
+import com.mcecelja.forum.specifications.criteria.TopicSearchCriteria;
 import com.mcecelja.forum.services.TopicService;
 import com.mcecelja.forum.utils.ResponseMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

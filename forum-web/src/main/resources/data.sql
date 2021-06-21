@@ -19,3 +19,9 @@ VALUES (1, 1),
 INSERT INTO topic (title, description, created_by_id)
 VALUES ('Prva testna tema', 'Opis prve testne teme', 1),
        ('Druga testna tema', 'Opis druge testne teme', 2);
+
+INSERT INTO comment (content, topic_id, created_by_id)
+VALUES ('Prvi komentar u prvoj temi', 1, 1),
+       ('Drugi komentar u prvoj temi', 1, 2),
+       ('Prvi komentar u drugoj temi', 2, 1),
+       ('Drugi komentar u drugoj temi', 2, 2);
