@@ -1,8 +1,10 @@
 package com.mcecelja.forum.rest;
 
 import com.mcecelja.forum.common.dto.comment.CommentDTO;
+import com.mcecelja.forum.common.dto.vote.VoteRequestDTO;
 import com.mcecelja.forum.common.exceptions.ForumException;
 import com.mcecelja.forum.services.CommentService;
+import com.mcecelja.forum.services.VoteService;
 import com.mcecelja.forum.specifications.criteria.CommentSearchCriteria;
 import com.mcecelja.forum.utils.ResponseMessage;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +25,8 @@ import static org.springframework.data.domain.Sort.Direction.ASC;
 public class CommentController {
 
 	private final CommentService commentService;
+
+	private final VoteService voteService;
 
 	@GetMapping("/{commentId}")
 	public ResponseEntity<ResponseMessage<CommentDTO>> getComment(@PathVariable("commentId") Long commentId) throws ForumException {
@@ -48,6 +52,17 @@ public class CommentController {
 	@DeleteMapping("/{commentId}")
 	public ResponseEntity<ResponseMessage<String>> deleteComment(@PathVariable("commentId") Long commentId) throws ForumException {
 		commentService.deleteComment(commentId);
+		return ResponseEntity.ok(new ResponseMessage<>(""));
+	}
+
+	@PutMapping("/{commentId}/vote")
+	public ResponseEntity<ResponseMessage<CommentDTO>> addVote(@PathVariable Long commentId, @Valid @RequestBody VoteRequestDTO voteRequestDTO) throws ForumException {
+		return ResponseEntity.ok(new ResponseMessage<>(voteService.addVote(commentId, voteRequestDTO)));
+	}
+
+	@DeleteMapping("/{commentId}/vote")
+	public ResponseEntity<ResponseMessage<String>> removeVote(@PathVariable Long commentId) throws ForumException {
+		voteService.removeVote(commentId);
 		return ResponseEntity.ok(new ResponseMessage<>(""));
 	}
 }

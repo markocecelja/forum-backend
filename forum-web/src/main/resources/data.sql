@@ -2,6 +2,10 @@ INSERT INTO role (name, created_date_time, updated_date_time)
 VALUES ('ADMIN', '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00'),
        ('REGULAR', '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00');
 
+INSERT INTO vote_type (name, created_date_time, updated_date_time)
+VALUES ('UP', '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00'),
+       ('DOWN', '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00');
+
 INSERT INTO users (first_name, last_name, email, created_date_time, updated_date_time)
 VALUES ('Ivan', 'Kovač', 'ikovac@mail.com', '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00'),
        ('Mišo', 'Franić', 'mfranic@mail.com', '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00');
@@ -25,3 +29,13 @@ VALUES ('Prvi komentar u prvoj temi', 1, 1),
        ('Drugi komentar u prvoj temi', 1, 2),
        ('Prvi komentar u drugoj temi', 2, 1),
        ('Drugi komentar u drugoj temi', 2, 2);
+
+INSERT INTO vote (comment_id, vote_type_id, created_by_id, created_date_time, updated_date_time)
+VALUES (1, 1, 1, '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00'),
+       (2, 2, 1, '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00'),
+       (1, 1, 2, '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00'),
+       (2, 1, 2, '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00'),
+       (3, 1, 1, '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00'),
+       (4, 2, 1, '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00'),
+       (3, 2, 2, '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00'),
+       (4, 2, 2, '2021-07-03 12:00:00.00', '2021-07-03 12:00:00.00');

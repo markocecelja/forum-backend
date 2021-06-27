@@ -2,6 +2,7 @@ package com.mcecelja.forum.domain.user;
 
 import com.mcecelja.forum.domain.AbstractBaseEntity;
 import com.mcecelja.forum.domain.user.codebook.Role;
+import com.mcecelja.forum.domain.vote.Vote;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,4 +46,7 @@ public class User extends AbstractBaseEntity implements Serializable {
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private UserLogin userLogin;
+
+	@OneToMany(mappedBy = "createdBy", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Set<Vote> userVotes;
 }

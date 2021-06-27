@@ -12,7 +12,10 @@ public enum ForumError {
 	UNAUTHORIZED("Unauthorized request!"),
 	USER_NOT_FOUND("User with provided id doesn't exist!"),
 	NON_EXISTING_TOPIC("Topic with provided id doesn't exist!"),
-	NON_EXISTING_COMMENT("Comment with provided id doesn't exist!");
+	NON_EXISTING_COMMENT("Comment with provided id doesn't exist!"),
+	NON_EXISTING_VOTE_TYPE("Vote type with provided id doesn't exist!"),
+	ADD_VOTE_FAILED("Add vote failed"),
+	REMOVE_VOTE_FAILED("Remove vote failed");
 
 	private final String desc;
 

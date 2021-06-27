@@ -2,6 +2,7 @@ package com.mcecelja.forum.domain.comment;
 
 import com.mcecelja.forum.domain.topic.Topic;
 import com.mcecelja.forum.domain.user.User;
+import com.mcecelja.forum.domain.vote.Vote;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -31,4 +33,7 @@ public class Comment {
 	@ManyToOne
 	@NotFound(action = NotFoundAction.IGNORE)
 	private User createdBy;
+
+	@OneToMany(mappedBy = "comment", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Set<Vote> votes;
 }
