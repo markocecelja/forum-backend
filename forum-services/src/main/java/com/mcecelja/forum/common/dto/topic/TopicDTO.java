@@ -25,4 +25,8 @@ public class TopicDTO {
 	private UserShortInfoDTO createdBy;
 
 	private String createdAt;
+
+	private Long numberOfComments;
+
+	private String lastCommentDateTime;
 }

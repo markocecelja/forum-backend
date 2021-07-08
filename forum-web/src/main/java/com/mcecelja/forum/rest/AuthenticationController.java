@@ -3,6 +3,7 @@ package com.mcecelja.forum.rest;
 import com.mcecelja.forum.common.dto.authentication.LoginRequestDTO;
 import com.mcecelja.forum.common.dto.authentication.LoginResponseDTO;
 import com.mcecelja.forum.common.dto.authentication.RegistrationRequestDTO;
+import com.mcecelja.forum.common.dto.authentication.ResetPasswordRequestDTO;
 import com.mcecelja.forum.common.exceptions.ForumException;
 import com.mcecelja.forum.services.AuthenticationService;
 import com.mcecelja.forum.utils.ResponseMessage;
@@ -30,6 +31,12 @@ public class AuthenticationController {
 	@PostMapping("/registration")
 	public ResponseEntity<ResponseMessage<String>> registerUser(@Valid @RequestBody RegistrationRequestDTO registrationRequestDTO) throws ForumException {
 		authenticationService.registerUser(registrationRequestDTO);
+		return ResponseEntity.ok(new ResponseMessage<>(""));
+	}
+
+	@PutMapping("/resetPassword")
+	public ResponseEntity<ResponseMessage<String>> resetPassword(@Valid @RequestBody ResetPasswordRequestDTO resetPasswordRequestDTO) throws ForumException {
+		authenticationService.resetPassword(resetPasswordRequestDTO);
 		return ResponseEntity.ok(new ResponseMessage<>(""));
 	}
 }
