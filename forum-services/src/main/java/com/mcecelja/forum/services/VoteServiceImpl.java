@@ -36,7 +36,7 @@ public class VoteServiceImpl implements VoteService {
 	
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public CommentDTO addVote(Long commentId, VoteRequestDTO voteRequestDTO) throws ForumException {
+	public CommentDTO modifyVote(Long commentId, VoteRequestDTO voteRequestDTO) throws ForumException {
 		User currentUser = AuthorizedRequestContext.getCurrentUser();
 
 		Optional<Comment> commentOptional = commentRepository.findById(commentId);
@@ -69,27 +69,11 @@ public class VoteServiceImpl implements VoteService {
 			voteRepository.save(vote);
 
 		} else if (vote.getVoteType().getId().equals(voteType.getId())) {
-			log.warn("Add vote failed: user {} has already left vote with type {} on comment with id {}!", currentUser.getId(), voteType.getId(), commentId);
-			throw new ForumException(ForumError.ADD_VOTE_FAILED);
+			comment.getVotes().remove(vote);
 		} else {
 			vote.setVoteType(voteType);
 		}
 
 		return commentMapper.commentToCommentDTO(comment);
-	}
-
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public void removeVote(Long commentId) throws ForumException {
-		User currentUser = AuthorizedRequestContext.getCurrentUser();
-
-		Vote vote = voteRepository.findVoteByCreatedByIdAndCommentId(currentUser.getId(), commentId);
-
-		if (vote == null) {
-			log.warn("Remove vote failed: user {} hasn't left vote on comment with id {}!", currentUser.getId(), commentId);
-			throw new ForumException(ForumError.REMOVE_VOTE_FAILED);
-		}
-
-		voteRepository.delete(vote);
 	}
 }

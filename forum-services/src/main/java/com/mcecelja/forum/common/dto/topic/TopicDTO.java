@@ -23,4 +23,6 @@ public class TopicDTO {
 	private String description;
 
 	private UserShortInfoDTO createdBy;
+
+	private String createdAt;
 }

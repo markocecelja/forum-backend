@@ -26,4 +26,6 @@ public class CommentDTO {
 	private VoteDTO vote;
 
 	private UserShortInfoDTO createdBy;
+
+	private String createdAt;
 }

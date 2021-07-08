@@ -1,5 +1,6 @@
 package com.mcecelja.forum.domain.topic;
 
+import com.mcecelja.forum.domain.AbstractBaseEntity;
 import com.mcecelja.forum.domain.comment.Comment;
 import com.mcecelja.forum.domain.user.User;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Topic {
+public class Topic extends AbstractBaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

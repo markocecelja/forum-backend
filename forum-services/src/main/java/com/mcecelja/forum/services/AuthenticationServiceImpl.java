@@ -86,8 +86,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 			throw new ForumException(ForumError.INVALID_EMAIL_ADDRESS);
 		}
 
-		user.setFirstName(registrationRequestDTO.getFirstName());
-		user.setLastName(registrationRequestDTO.getLastName());
 		user.setEmail(registrationRequestDTO.getEmail());
 
 		user.setUserLogin(new UserLogin(null, registrationRequestDTO.getUsername(), bCryptPasswordEncoder.encode(registrationRequestDTO.getPassword()), user));

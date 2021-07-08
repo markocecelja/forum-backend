@@ -6,7 +6,5 @@ import com.mcecelja.forum.common.exceptions.ForumException;
 
 public interface VoteService {
 
-	CommentDTO addVote(Long commentId, VoteRequestDTO voteRequestDTO) throws ForumException;
-
-	void removeVote(Long commentId) throws ForumException;
+	CommentDTO modifyVote(Long commentId, VoteRequestDTO voteRequestDTO) throws ForumException;
 }

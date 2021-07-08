@@ -1,5 +1,6 @@
 package com.mcecelja.forum.domain.comment;
 
+import com.mcecelja.forum.domain.AbstractBaseEntity;
 import com.mcecelja.forum.domain.topic.Topic;
 import com.mcecelja.forum.domain.user.User;
 import com.mcecelja.forum.domain.vote.Vote;
@@ -18,7 +19,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Comment {
+public class Comment extends AbstractBaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

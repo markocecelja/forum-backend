@@ -11,7 +11,8 @@ import org.mapstruct.ReportingPolicy;
 public abstract class TopicMapper {
 
 	@Mappings({
-			@Mapping(target = "createdBy", source = "entity.createdBy")
+			@Mapping(target = "createdBy", source = "entity.createdBy"),
+			@Mapping(target = "createdAt", source = "entity.createdDateTime")
 	})
 	public abstract TopicDTO topicToTopicDTO(Topic entity);
 }

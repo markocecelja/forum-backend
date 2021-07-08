@@ -35,7 +35,7 @@ public class CommentController {
 
 	@GetMapping("")
 	public ResponseEntity<ResponseMessage<Page<CommentDTO>>> getComments(@RequestParam Long topicId,
-	                                                                     @PageableDefault(size = 20, sort = "id", direction = ASC) Pageable pageable) {
+	                                                                     @PageableDefault(size = 20, sort = "createdDateTime", direction = ASC) Pageable pageable) {
 		return ResponseEntity.ok(new ResponseMessage<>(commentService.getComments(new CommentSearchCriteria(topicId), pageable)));
 	}
 
@@ -56,13 +56,7 @@ public class CommentController {
 	}
 
 	@PutMapping("/{commentId}/vote")
-	public ResponseEntity<ResponseMessage<CommentDTO>> addVote(@PathVariable Long commentId, @Valid @RequestBody VoteRequestDTO voteRequestDTO) throws ForumException {
-		return ResponseEntity.ok(new ResponseMessage<>(voteService.addVote(commentId, voteRequestDTO)));
-	}
-
-	@DeleteMapping("/{commentId}/vote")
-	public ResponseEntity<ResponseMessage<String>> removeVote(@PathVariable Long commentId) throws ForumException {
-		voteService.removeVote(commentId);
-		return ResponseEntity.ok(new ResponseMessage<>(""));
+	public ResponseEntity<ResponseMessage<CommentDTO>> modifyVote(@PathVariable Long commentId, @Valid @RequestBody VoteRequestDTO voteRequestDTO) throws ForumException {
+		return ResponseEntity.ok(new ResponseMessage<>(voteService.modifyVote(commentId, voteRequestDTO)));
 	}
 }

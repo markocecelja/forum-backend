@@ -14,12 +14,6 @@ import javax.validation.constraints.NotBlank;
 public class RegistrationRequestDTO {
 
 	@NotBlank
-	private String firstName;
-
-	@NotBlank
-	private String lastName;
-
-	@NotBlank
 	private String username;
 
 	@NotBlank

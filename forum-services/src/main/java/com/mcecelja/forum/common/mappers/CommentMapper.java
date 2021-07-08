@@ -28,7 +28,8 @@ public abstract class CommentMapper {
 	@Mappings({
 			@Mapping(target = "createdBy", source = "entity.createdBy"),
 			@Mapping(target = "topic", source = "entity.topic"),
-			@Mapping(target = "vote", expression = "java(getVoteDTO(entity.getVotes()))")
+			@Mapping(target = "vote", expression = "java(getVoteDTO(entity.getVotes()))"),
+			@Mapping(target = "createdAt", source = "createdDateTime")
 	})
 	public abstract CommentDTO commentToCommentDTO(Comment entity);
 
