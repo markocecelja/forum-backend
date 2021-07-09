@@ -31,7 +31,7 @@ public class Comment extends AbstractBaseEntity {
 	@ManyToOne
 	private Topic topic;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@NotFound(action = NotFoundAction.IGNORE)
 	private User createdBy;
 
