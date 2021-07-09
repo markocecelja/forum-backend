@@ -30,7 +30,7 @@ public class User extends AbstractBaseEntity implements Serializable {
 
 	private String email;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "user_role",
 			joinColumns = {@JoinColumn(name = "user_id")},
